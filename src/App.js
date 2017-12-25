@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav';
@@ -6,12 +7,21 @@ import Note from './components/Note';
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showNote: false
+    };
+  }
+
+
 render() {
+  const { showNote } = this.state; //object destructuring
+
   return (
     <div className="App">
       <Nav />
-      <List />
-      <Note />
+      { showNote ? <Note /> : <List /> }
     </div>
   );
 }
