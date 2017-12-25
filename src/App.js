@@ -7,12 +7,18 @@ import Note from './components/Note';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showNote: false
-    };
-  }
+constructor() {
+  super();
+  this.state = {
+    showNote: false
+  };
+}
+
+toggleNote = () => {
+  this.setState({
+    showNote: ! this.state.showNote
+  });
+}  
 
 
 render() {
@@ -20,7 +26,7 @@ render() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav toggleNote={this.toggleNote} showNote={showNote} />
       { showNote ? <Note /> : <List /> }
     </div>
   );
